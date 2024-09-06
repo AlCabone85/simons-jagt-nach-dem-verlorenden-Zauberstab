@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die Fantastische Jagt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: grey;
+            text-align: center;
+        }
+        #gameArea {
+            width: 90%;
+            max-width: 600px;
+            height: 600px;
+            border: 10px solid red;
+            border-radius: 20px;
+            background-color: lightgrey;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #player {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .point {
+            width: 90px;
+            height: 90px;
+            position: absolute;
+        }
+        #gameOver {
+            display: none;
+            font-size: 48px;
+            color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .control-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .control-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+        .arrow-button {
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 60px;
+            background-color: lightblue;
+            border: 2px solid #000;
+            border-radius: 10px;
+            user-select: none;
+        }
+        .arrow-button:active {
+            background-color: darkblue;
+            color: white;
+        }
+        #restart {
+            width: 100px;
+            height: 60px;
+            background-color: lightgreen;
+            border: 2px solid #000;
+            border-radius: 10px;
+            margin: 10px;
+            font-size: 20px;
+            line-height: 60px;
+            text-align: center;
+            user-select: none;
+        }
+        #restart:active {
+            background-color: darkgreen;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Die Fantastische Jagt</h1>
+    <p>Punkte: <span id="score">0</span></p>
+    <div id="gameArea">
+        <img id="player" src="dein-bild.png" alt="Spieler">
+        <div id="gameOver">Game Over</div>
+    </div>
+
+    <!-- Steuerungsbereich -->
+    <div class="control-container">
+        <div id="restart">Restart</div>
+        <div class="control-buttons">
+            <div class="row">
+                <div class="arrow-button" id="up">⬆️</div>
+            </div>
+            <div class="row">
+                <div class="arrow-button" id="left">⬅️</div>
+                <div class="arrow-button" id="down">⬇️</div>
+                <div class="arrow-button" id="right">➡️</div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" src="background.mp3" loop></audio>
+    <audio id="pointSound" src="point.mp3"></audio>
+
+    <script src="game.js"></script>
+</body>
+</html>
